@@ -282,7 +282,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
 
             x.setGpa(Double.parseDouble(jTextFieldGPA.getText()));
 
-            if(x.addStudent()) {
+            if(x.updateStudent(x.getID(),x)) {
                 jLabelSucessOrFail.setText("Updated Successfully.. !");
                 resetPanelData();
             } else

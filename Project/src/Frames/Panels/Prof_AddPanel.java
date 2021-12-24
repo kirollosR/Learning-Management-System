@@ -6,11 +6,8 @@
 package Frames.Panels;
 
 import Classes.Main;
+import Classes.Professor;
 
-/**
- *
- * @author Tamer A.Yassen
- */
 public class Prof_AddPanel extends javax.swing.JPanel {
 
     /**
@@ -219,9 +216,9 @@ public class Prof_AddPanel extends javax.swing.JPanel {
             x.setID(Integer.parseInt(jTextFieldID.getText()));
             x.setFName(jTextFieldFname.getText());
             x.setLName(jTextFieldLname.getText());
-            x.setUserName(jTextFieldUserName.getText());
+            x.setUsername(jTextFieldUserName.getText());
             if (jPasswordField1.getText().equals(jPasswordField2.getText())) {
-                x.setPass(jPasswordField1.getText());
+                x.setPassword(jPasswordField1.getText());
             }
 
             x.setAge(Integer.parseInt(jTextFieldAge.getText()));

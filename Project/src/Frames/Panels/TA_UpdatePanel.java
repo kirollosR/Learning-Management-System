@@ -6,6 +6,7 @@
 package Frames.Panels;
 
 import Classes.Main;
+import Classes.TA;
 
 /**
  *
@@ -247,13 +248,13 @@ public class TA_UpdatePanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (!jTextFieldID.getText().equals("") && !jTextFieldFname.getText().equals("") && !jTextFieldLname.getText().equals("") && !jTextFieldUserName.getText().equals("") && !jPasswordField1.getText().equals("") && !jPasswordField2.getText().equals("") && !jTextFieldAge.getText().equals("") && !jTextFieldAcademicHours.getText().equals("") && !jTextFieldSalary.getText().equals("")) {
 
-            TeachingAssistant x = new TeachingAssistant();
+            TA x = new TA();
             x.setID(Integer.parseInt(jTextFieldID.getText()));
             x.setFName(jTextFieldFname.getText());
             x.setLName(jTextFieldLname.getText());
-            x.setUserName(jTextFieldUserName.getText());
+            x.setUsername(jTextFieldUserName.getText());
             if (jPasswordField1.getText().equals(jPasswordField2.getText())) {
-                x.setPass(jPasswordField1.getText());
+                x.setPassword(jPasswordField1.getText());
             }
 
             x.setAge(Integer.parseInt(jTextFieldAge.getText()));
@@ -271,7 +272,7 @@ public class TA_UpdatePanel extends javax.swing.JPanel {
             x.setacademicHours(jTextFieldAcademicHours.getText());
             x.setSalary(Double.parseDouble(jTextFieldSalary.getText()));
 
-            if (x.updateTA()) {
+            if (x.updateTA(x.getID(), x)) {
                 jLabelSucessOrFail.setText("Updated Successfully ... !");
                 resetPanelData();
             } else {
@@ -286,8 +287,8 @@ public class TA_UpdatePanel extends javax.swing.JPanel {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         if (!jTextFieldSearchKey.getText().equals("")) {
-            TeachingAssistant x = new TeachingAssistant();
-            TeachingAssistant returned = x.searchTAsById(Integer.parseInt(jTextFieldSearchKey.getText()));
+            TA x = new TA();
+            TA returned = x.searchTAsById(Integer.parseInt(jTextFieldSearchKey.getText()));
             if (returned.getID() > 0) {
                 setPanelData(returned);
             } else {
@@ -302,7 +303,7 @@ public class TA_UpdatePanel extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         if (!jTextFieldSearchKey.getText().equals("")) {
-            TeachingAssistant x = new TeachingAssistant();
+            TA x = new TA();
             if (x.deleteTA(Integer.parseInt(jTextFieldSearchKey.getText()))) {
                 jLabelSucessOrFail.setText("Deleted Successfully ... !");
                 resetPanelData();
@@ -328,13 +329,13 @@ public class TA_UpdatePanel extends javax.swing.JPanel {
 
     }
 
-    protected void setPanelData(TeachingAssistant x) {
+    protected void setPanelData(TA x) {
         jTextFieldID.setText("" + x.getID());
         jTextFieldFname.setText("" + x.getFName());
         jTextFieldLname.setText("" + x.getLName());
-        jTextFieldUserName.setText("" + x.getuserName());
-        jPasswordField1.setText("" + x.getPass());
-        jPasswordField2.setText("" + x.getPass());
+        jTextFieldUserName.setText("" + x.getUsername());
+        jPasswordField1.setText("" + x.getPassword());
+        jPasswordField2.setText("" + x.getPassword());
         jTextFieldAge.setText("" + x.getAge());
         jTextFieldAcademicHours.setText("" + x.getacademicHours());
 
