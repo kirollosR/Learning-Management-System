@@ -247,14 +247,14 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldID.getText().equals("") && jTextFieldFname.getText().equals("") && jTextFieldLname.getText().equals("") && jTextFieldAge.getText().equals("") && jTextFieldUserName.getText().equals("") && jPasswordField1.getText().equals("") && jPasswordField2.getText().equals("") && jTextFieldGPA.getText().equals("") && jTextFieldAge.getText().equals("")){
+        if (!jTextFieldID.getText().equals("") && !jTextFieldFname.getText().equals("") && !jTextFieldLname.getText().equals("") && !jTextFieldUserName.getText().equals("") && !jPasswordField1.getText().equals("") && !jPasswordField2.getText().equals("") && !jTextFieldAge.getText().equals("") && !jTextFieldGPA.getText().equals("")) {
 
             Student x = new Student();
             x.setID(Integer.parseInt(jTextFieldID.getText()));
             x.setFName(jTextFieldFname.getText());
             x.setLName(jTextFieldLname.getText());
             x.setAge(Integer.parseInt(jTextFieldID.getText()));
-            x.setUsername(jTextFieldID.getText());
+            x.setUsername(jTextFieldUserName.getText());
 
             if(jPasswordField1.getText().equals(jPasswordField2.getText()))
                 x.setPassword(jPasswordField1.getText());
@@ -295,7 +295,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldSearchKey.getText().equals("")) {
+        if (!jTextFieldSearchKey.getText().equals("")) {
             Student x = new Student();
             Student returned = x.searchStudentById(Integer.parseInt(jTextFieldSearchKey.getText()));
             if(returned.getID() > 0)

@@ -63,10 +63,11 @@ public abstract class Person {
     }
 
     public void setUsername(String username) {
-        if (!username.contains("@") || !username.contains("."))
-            this.username = MyEX.checkEmail("UserName");
-        else
+        if (!username.contains("@") || !username.contains(".")) {
+            this.username = MyEX.checkEmail("User name");
+        } else {
             this.username = username;
+        }
     }
 
     public void setPassword(String password) {

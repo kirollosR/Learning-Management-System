@@ -77,6 +77,8 @@ public class Prof_ListPanel extends javax.swing.JPanel {
 
         professors = prof.listProfs();
 
+//        return this.id + "#" + this.fname + "#" + this.lname + "#" + this.age + "#" + this.salary + "#" + this.officeHours
+//                + "#" + this.myDept.getDeptName() + "#" + this.username + "#" + this.password + "#";
         for (Professor x : professors) {
             rowData[0] = x.getID();
             rowData[1] = x.getFName();

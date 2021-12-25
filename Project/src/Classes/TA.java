@@ -14,7 +14,7 @@ public class TA extends Staff implements Serializable {
 
     private String academicHours;
 
-    private final String TAFileName = "TA.bin";
+    private final String TAFileName = "TA.txt";
 
     public static ArrayList<TA> TAs = new ArrayList<TA>();
 
@@ -46,7 +46,7 @@ public class TA extends Staff implements Serializable {
     return this.id + "#" + this.fname + "#" + this.lname + "#" + this.age + "#" + this.salary + "#" + this.academicHours + "#" + this.myDept.getDeptName() + "#" + this.username + "#" + this.password + "#";
     }
        
-    private void commitToFile() {
+    public void commitToFile() {
         FManger.write(TAs.get(0).getTAData(), TAFileName, false);
         for (int i = 1; i < TAs.size(); i++) {
             FManger.write(TAs.get(i).getTAData(), TAFileName, true);

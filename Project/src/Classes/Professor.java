@@ -7,7 +7,7 @@ public class Professor extends Staff implements Serializable {
 
     private String officeHours;
 
-    private final String professorFileName = "Professor.bin";
+    private final String professorFileName = "Professor.txt";
 
     public static ArrayList<Professor> Professors = new ArrayList<Professor>();
 

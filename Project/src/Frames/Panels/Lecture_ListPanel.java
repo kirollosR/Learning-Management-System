@@ -73,7 +73,7 @@ public class Lecture_ListPanel extends javax.swing.JPanel {
     public void addRowsTojTable() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object rowData[] = new Object[4];
-
+/*
         Course c = new Course();
         ArrayList<Course> courses = new ArrayList<Course>();
 
@@ -87,7 +87,7 @@ public class Lecture_ListPanel extends javax.swing.JPanel {
 
             model.addRow(rowData);
         }
-
+*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

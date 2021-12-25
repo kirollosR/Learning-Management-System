@@ -112,8 +112,8 @@ public class FileManger implements Serializable {
                     x.setDept(Main.sw);
                 }
 
-                x.setUserName(seprated[7]);
-                x.setPass(seprated[8]);
+                x.setUsername(seprated[7]);
+                x.setPassword(seprated[8]);
 
                 Professors.add(x);
             }
@@ -122,12 +122,12 @@ public class FileManger implements Serializable {
 
         } else if (FilePath.equals("TA.txt")) {
 
-            ArrayList<TeachingAssistant> TAs = new ArrayList<TeachingAssistant>();
-            TeachingAssistant x;
+            ArrayList<TA> TAs = new ArrayList<TA>();
+            TA x;
 
             while (Reader.hasNext()) {
 
-                x = new TeachingAssistant();
+                x = new TA();
                 String Line = Reader.nextLine();
                 String[] seprated = Line.split("#");
 
@@ -149,15 +149,15 @@ public class FileManger implements Serializable {
                     x.setDept(Main.sw);
                 }
 
-                x.setUserName(seprated[7]);
-                x.setPass(seprated[8]);
+                x.setUsername(seprated[7]);
+                x.setPassword(seprated[8]);
 
                 TAs.add(x);
             }
 
             return (ArrayList<Object>) (Object) TAs;
 
-        } else if (FilePath.equals("Courses.txt")) {
+        }/* else if (FilePath.equals("Courses.txt")) {
 
             ArrayList<Course> Courses = new ArrayList<Course>();
             Course x;
@@ -178,7 +178,7 @@ public class FileManger implements Serializable {
 
             return (ArrayList<Object>) (Object) Courses;
 
-        } else {
+        } */else {
             return null;
         }
 
