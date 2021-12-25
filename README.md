@@ -3,6 +3,6 @@
 
 ## Accounts
 ### Admin
-username: Admin 
+username: Admin@yahoo.com
 
 password: admin
