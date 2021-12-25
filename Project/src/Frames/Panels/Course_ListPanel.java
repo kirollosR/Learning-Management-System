@@ -85,7 +85,7 @@ public class Course_ListPanel extends javax.swing.JPanel {
             rowData[0] = x.getCId();
             rowData[1] = x.getCName();
             rowData[2] = x.getCreditHours();
-            //rowData[3] = x.dept.getDeptName();
+            rowData[3] = x.dept.getDeptName();
 
             model.addRow(rowData);
         }

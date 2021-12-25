@@ -52,6 +52,6 @@ public class RegisteredCourses extends Course{
 
     private String getRegisteredCourseData(){
 
-        return this.studentID + "#" + c.getCName() + "#" + c.getCId() + "#" + c.getCreditHours() + "#";
+        return this.studentID + "#" + c.getCName() + "#" + c.getCId() + "#" + c.getCreditHours() + "#" + c.dept.getDeptName();
     }
 }

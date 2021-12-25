@@ -73,6 +73,7 @@ public class Student_CoursesFrame extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setTitle("Courses  Management");
+        setPreferredSize(new java.awt.Dimension(780, 614));
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 

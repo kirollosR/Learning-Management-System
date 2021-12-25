@@ -2,6 +2,7 @@
 package GUI;
 import Classes.Admin;
 import Classes.Person;
+import Classes.Professor;
 import Classes.Student;
 
 import javax.swing.JOptionPane;
@@ -119,8 +120,15 @@ public class LoginFrame extends javax.swing.JFrame {
             if ((x.login(jTextFieldUsername.getText(), jPasswordField1.getText()))) {
                 this.setVisible(false);
                 new StudentDashboard().setVisible(true);
+            }else {
+                x = new Professor();
+                if ((x.login(jTextFieldUsername.getText(), jPasswordField1.getText()))) {
+                    this.setVisible(false);
+                    new ProfessorDashboard().setVisible(true);
+                }
             }
         }
+
        }catch (Exception xcp){
            JOptionPane.showMessageDialog(null, xcp.getMessage(), "Incorrect Username or password", JOptionPane.ERROR);
        }

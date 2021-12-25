@@ -1,2 +1,2 @@
-CS#cs31#3
-IS#is11#2
+Intro to computer science#cs30#3#CS#
+Math 1#m50#3#General#

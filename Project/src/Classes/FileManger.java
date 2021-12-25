@@ -172,15 +172,15 @@ public class FileManger implements Serializable {
                 x.setCName(seprated[0]);
                 x.setCId(seprated[1]);
                 x.setCreditHours(Integer.parseInt(seprated[2]));
-//                if (seprated[3].equals("CS")) {
-//                    x.setDept(Main.cs);
-//                } else if (seprated[3].equals("IS")) {
-//                    x.setDept(Main.is);
-//                } else if (seprated[3].equals("IT")) {
-//                    x.setDept(Main.it);
-//                } else if (seprated[3].equals("SW")) {
-//                    x.setDept(Main.sw);
-//                }
+                if (seprated[3].equals("CS")) {
+                    x.setDept(Main.cs);
+                } else if (seprated[3].equals("IS")) {
+                    x.setDept(Main.is);
+                } else if (seprated[3].equals("IT")) {
+                    x.setDept(Main.it);
+                } else if (seprated[3].equals("SW")) {
+                    x.setDept(Main.sw);
+                }
 
                 Courses.add(x);
             }
@@ -189,7 +189,7 @@ public class FileManger implements Serializable {
 
         } else if (FilePath.equals("RegisteredCourses.txt")) {
 
-            ArrayList<RegisteredCourses> RegisteredCourses = new ArrayList<RegisteredCourses>();
+            ArrayList<RegisteredCourses> RegisteredCourse = new ArrayList<RegisteredCourses>();
             RegisteredCourses x;
 
             while (Reader.hasNext()) {
@@ -203,11 +203,51 @@ public class FileManger implements Serializable {
                 x.setCId(seprated[2]);
                 x.setCreditHours(Integer.parseInt(seprated[3]));
 
+                if (seprated[4].equals("CS")) {
+                    x.setDept(Main.cs);
+                } else if (seprated[4].equals("IS")) {
+                    x.setDept(Main.is);
+                } else if (seprated[4].equals("IT")) {
+                    x.setDept(Main.it);
+                } else if (seprated[4].equals("SW")) {
+                    x.setDept(Main.sw);
+                }
 
-                RegisteredCourses.add(x);
+
+                RegisteredCourse.add(x);
             }
 
-            return (ArrayList<Object>) (Object) RegisteredCourses;
+            return (ArrayList<Object>) (Object) RegisteredCourse;
+
+        }else if (FilePath.equals("Lectures.txt")) {
+
+            ArrayList<Lecture> Lectures = new ArrayList<Lecture>();
+            Lecture x;
+
+            while (Reader.hasNext()) {
+
+                x = new Lecture();
+                String Line = Reader.nextLine();
+                String[] seprated = Line.split("#");
+
+                x.setLName(seprated[0]);
+                x.setLNumber(seprated[1]);
+                x.setLDate(seprated[3]);
+
+                if (seprated[2].equals("CS")) {
+                    x.setDept(Main.cs);
+                } else if (seprated[2].equals("IS")) {
+                    x.setDept(Main.is);
+                } else if (seprated[2].equals("IT")) {
+                    x.setDept(Main.it);
+                } else if (seprated[2].equals("SW")) {
+                    x.setDept(Main.sw);
+                }
+
+
+                Lectures.add(x);
+            }
+            return (ArrayList<Object>) (Object) Lectures;
         }else {
             return null;
         }

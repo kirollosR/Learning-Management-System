@@ -103,15 +103,15 @@ public class BarChart extends ApplicationFrame{
 
         // NOW DO SOME OPTIONAL CUSTOMISATION OF THE CHART...
         // set the background color for the chart...
-        chart.setBackgroundPaint(Color.white);
+        chart.setBackgroundPaint(new java.awt.Color(0, 153, 153));
 
         // get a reference to the plot for further customisation...
         final CategoryPlot plot = chart.getCategoryPlot();
-        plot.setBackgroundPaint(Color.white);
-        plot.setDomainGridlinePaint(Color.white);
-        plot.setRangeGridlinePaint(Color.white);
+        plot.setBackgroundPaint(new java.awt.Color(0, 153, 153));
+        plot.setDomainGridlinePaint(new java.awt.Color(0, 153, 153));
+        plot.setRangeGridlinePaint(new java.awt.Color(0, 153, 153));
 
-        plot.getRenderer().setSeriesPaint(0, Color.green);
+        plot.getRenderer().setSeriesPaint(0, new java.awt.Color(102, 255, 255));
         plot.getRenderer().setSeriesPaint(1, Color.yellow);
         plot.getRenderer().setSeriesPaint(2, Color.red);
         //plot.getRenderer().setSeriesPaint( 3, Color.red);
