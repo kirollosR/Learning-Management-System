@@ -5,8 +5,9 @@
  */
 package Frames.Panels;
 
-import Classes.Main;
 
+import Classes.Assignment;
+import Classes.Main;
 
 public class Assignment_AddPanel extends javax.swing.JPanel {
 
@@ -27,12 +28,12 @@ public class Assignment_AddPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldID = new javax.swing.JTextField();
+        jTextFieldAType = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextFieldCname = new javax.swing.JTextField();
+        jTextFieldAName = new javax.swing.JTextField();
         jLabelSucessOrFail = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextFieldCreditHours = new javax.swing.JTextField();
+        jTextFieldADueDate = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jComboBoxDept = new javax.swing.JComboBox<>();
         btnSubmit = new javax.swing.JButton();
@@ -52,7 +53,7 @@ public class Assignment_AddPanel extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Date");
 
-        jTextFieldCreditHours.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldADueDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCreditHoursActionPerformed(evt);
             }
@@ -93,9 +94,9 @@ public class Assignment_AddPanel extends javax.swing.JPanel {
                             .addComponent(jLabel9))
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldID, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                            .addComponent(jTextFieldCname)
-                            .addComponent(jTextFieldCreditHours, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldAType, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                            .addComponent(jTextFieldAName)
+                            .addComponent(jTextFieldADueDate, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 30, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -112,14 +113,14 @@ public class Assignment_AddPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldCname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldCreditHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldADueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -133,7 +134,34 @@ public class Assignment_AddPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
+        if (!jTextFieldAName.getText().equals("") && !jTextFieldAType.getText().equals("") && !jTextFieldADueDate.getText().equals("")){
 
+            Assignment x = new Assignment();
+            x.setAName(jTextFieldAName.getText());
+            x.setAType(jTextFieldAType.getText());
+            x.setADueDate(jTextFieldADueDate.getText());
+
+            if (jComboBoxDept.getSelectedItem().equals("CS")) {
+                x.setDept(Main.cs);
+            }
+            else if (jComboBoxDept.getSelectedItem().equals("IS")) {
+                x.setDept(Main.is);
+            }
+            else if (jComboBoxDept.getSelectedItem().equals("SW")) {
+                x.setDept(Main.sw);
+            }
+
+            if (x.addAssignment()) {
+                jLabelSucessOrFail.setText("Added Successfully");
+                resetPanelData();
+            }
+            else{
+                jLabelSucessOrFail.setText("Failed to insert");
+            }
+        }
+        else {
+            jLabelSucessOrFail.setText("Missing required Fields .. Please, complete them before submit");
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void jComboBoxDeptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDeptActionPerformed
@@ -145,9 +173,9 @@ public class Assignment_AddPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextFieldCreditHoursActionPerformed
 
     protected void resetPanelData() {
-        jTextFieldID.setText("");
-        jTextFieldCname.setText("");
-        jTextFieldCreditHours.setText("");
+        jTextFieldAType.setText("");
+        jTextFieldAName.setText("");
+        jTextFieldADueDate.setText("");
         jComboBoxDept.setSelectedIndex(0);
 
     }
@@ -160,8 +188,8 @@ public class Assignment_AddPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelSucessOrFail;
-    private javax.swing.JTextField jTextFieldCname;
-    private javax.swing.JTextField jTextFieldCreditHours;
-    private javax.swing.JTextField jTextFieldID;
+    private javax.swing.JTextField jTextFieldAName;
+    private javax.swing.JTextField jTextFieldADueDate;
+    private javax.swing.JTextField jTextFieldAType;
     // End of variables declaration//GEN-END:variables
 }

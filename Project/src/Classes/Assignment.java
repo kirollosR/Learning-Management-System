@@ -1,24 +1,24 @@
 package Classes;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Assignment {
     private String AName;
     private String AType;
-    private Date ADueDate;
+    private String ADueDate;
 
     FileManger FManger = new FileManger();
     private final String AssignmentFileName = "Assignment.txt";
 
     Course course ;
+    public Department dept;
 
     public static ArrayList<Assignment> Assignments = new ArrayList<Assignment>();
 
     public Assignment(){
     }
 
-    public Assignment(String AName,String AType,Date ADueDate,Course course){
+    public Assignment(String AName,String AType,String ADueDate,Course course){
         this.AName = AName;
         this.AType = AType;
         this.ADueDate = ADueDate ;
@@ -41,12 +41,20 @@ public class Assignment {
         return this.AType;
     }
 
-    public void setADueDate(Date ADueDate){
-        this.ADueDate = ADueDate ;
+    public void setADueDate(String ADueDate){
+        this.ADueDate = String.valueOf(ADueDate);
     }
 
-    public Date getADueDate(){
+    public String getADueDate(){
         return this.ADueDate;
+    }
+
+    public void setDept(Department dept){
+        this.dept = dept;
+    }
+
+    public Department getDept(){
+        return dept;
     }
 
     public boolean addAssignment(){
@@ -89,32 +97,50 @@ public class Assignment {
         return S ;
     }
 
-    public String searchAssignment(String name){
+    public Assignment searchAssignment(String name){
+        Assignment temp = new Assignment();
         loadFromFile();
         int index = getAssignmentIndex(name);
         if(index != -1)
-            return "\nFound " + Assignments.get(index).toString();
+            return Assignments.get(index);
         else
-            return "\nNot Found ";
+            return temp;
     }
 
-    public void updateAssignment(String oldName,Assignment x){
+    public boolean updateAssignment(String oldName,Assignment x){
         loadFromFile();
         int index = getAssignmentIndex(oldName);
-        Assignments.set(index,x);
-        commitToFile();
+        if (index != -1) {
+            Assignments.set(index, x);
+            commitToFile();
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
-    public void deleteAssignment(String name){
+    public boolean deleteAssignment(String name){
         loadFromFile();
         int index = getAssignmentIndex(name);
-        Assignments.remove(index);
-        commitToFile();
+        if (index != -1) {
+            Assignments.remove(index);
+            commitToFile();
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     @Override
     public String toString(){
         return "\nAssignment Name : " + AName + "\tAssignment Type : " + AType + "\nAssignment Due Date : " + ADueDate ;
+    }
+
+    public ArrayList<Assignment> listAssignmets() {
+        loadFromFile();
+        return Assignments;
     }
 }
 
