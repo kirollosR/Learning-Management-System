@@ -108,6 +108,11 @@ public class Course {
             return temp;
     }
 
+    public ArrayList<Course> listCourses(){
+        loadFromFile();
+        return Courses;
+    }
+
     public boolean updateCourse(String oldID, Course x){
         loadFromFile();
         int index = getCourseIndex(oldID);
