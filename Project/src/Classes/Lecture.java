@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Lecture {
     private String LName;
     private String LNumber;
-    private long LDate;
+    private String LDate;
 
     FileManger FManger = new FileManger();
     private final String LectureFileName = "Lectures.txt";
 
     Course course;
-    public Department dept;
+    public Department dept = Main.general;
     public static ArrayList<Lecture> Lectures = new ArrayList<Lecture>();
 
     public Lecture(){
@@ -39,16 +39,20 @@ public class Lecture {
         return LNumber;
     }
 
-    public void setLDate(long LDate){
+    public void setLDate(String LDate){
         this.LDate = LDate ;
     }
 
-    public long getLDate(){
+    public String getLDate(){
         return LDate;
     }
 
     public void setDept(Department dept){
         this.dept = dept;
+    }
+
+    public Department getDept(){
+        return this.dept;
     }
 
     public boolean addLecture(){
@@ -61,7 +65,7 @@ public class Lecture {
     }
 
     private String getLectureData(){
-        return this.LName + "@" + this.LNumber +"@";
+        return this.LName + "#" + this.LNumber +"#" + this.dept.getDeptName() + "#" + this.LDate + "#";
     }
 
     private void commitToFile(){
@@ -106,19 +110,19 @@ public class Lecture {
         return Lectures;
     }
 
-    public boolean updateLecture(String oldNumber, Lecture x){
+    public boolean updateLecture(String oldNumber, Lecture x) {
         loadFromFile();
         int index = getLectureIndex(oldNumber);
         if (index != -1) {
             Lectures.set(index, x);
             commitToFile();
             return true;
-        }
-        else{
+        } else {
             return false;
         }
+    }
 
-    public void deleteLecture(String Lnumber){
+    public boolean deleteLecture(String Lnumber){
         loadFromFile();
         int index = getLectureIndex(Lnumber);
         if (index != -1) {

@@ -33,105 +33,111 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new JLabel();
-        jTextFieldID = new JTextField();
-        jLabel2 = new JLabel();
-        jTextFieldLName = new JTextField();
-        jLabelSucessOrFail = new JLabel();
-        jLabel7 = new JLabel();
-        jTextFieldLDate = new JTextField();
-        jLabel9 = new JLabel();
-        jComboBoxDept = new JComboBox<>();
-        btnSubmit = new JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldID = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextFieldLName = new javax.swing.JTextField();
+        jLabelSucessOrFail = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextFieldLDate = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jComboBoxDept = new javax.swing.JComboBox<>();
+        btnSubmit = new javax.swing.JButton();
 
-        setBackground(new Color(0, 153, 153));
+        setBackground(new java.awt.Color(0, 153, 153));
 
-        jLabel1.setFont(new Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Lecture ID");
 
-        jLabel2.setFont(new Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Lecture Name");
 
-        jLabelSucessOrFail.setFont(new Font("Tahoma", 1, 12)); // NOI18N
-        jLabelSucessOrFail.setForeground(new Color(255, 255, 51));
-        jLabelSucessOrFail.setText("Add New Lecture");
-
-        jLabel7.setFont(new Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setText("Date");
-
-        jTextFieldLDate.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                jTextFieldCreditHoursActionPerformed(evt);
+        jTextFieldLName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldLNameActionPerformed(evt);
             }
         });
 
-        jLabel9.setFont(new Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSucessOrFail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSucessOrFail.setForeground(new java.awt.Color(255, 255, 51));
+        jLabelSucessOrFail.setText("Add New Lecture");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setText("Date");
+
+        jTextFieldLDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldLDateActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Department");
 
-        jComboBoxDept.setModel(new DefaultComboBoxModel<>(new String[] { "CS", "IS", "IT", "SW" }));
-        jComboBoxDept.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
+        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "CS", "IS", "IT", "SW" }));
+        jComboBoxDept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDeptActionPerformed(evt);
             }
         });
 
-        btnSubmit.setBackground(new Color(102, 255, 255));
-        btnSubmit.setFont(new Font("Tahoma", 1, 12)); // NOI18N
+        btnSubmit.setBackground(new java.awt.Color(102, 255, 255));
+        btnSubmit.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSubmit.setText("Add Lecture");
-        btnSubmit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
 
-        GroupLayout layout = new GroupLayout(this);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelSucessOrFail, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelSucessOrFail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
                             .addComponent(jLabel7)
                             .addComponent(jLabel9))
                         .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldID, GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldID, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
                             .addComponent(jTextFieldLName)
-                            .addComponent(jTextFieldLDate, GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBoxDept, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldLDate, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 54, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSubmit)
                 .addGap(220, 220, 220))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelSucessOrFail, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                .addComponent(jLabelSucessOrFail, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextFieldID, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldLName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldLName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldLDate, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldLDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jComboBoxDept, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxDept, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(btnSubmit)
                 .addContainerGap(249, Short.MAX_VALUE))
@@ -145,7 +151,7 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
             Lecture x = new Lecture();
             x.setLNumber(jTextFieldID.getText());
             x.setLName(jTextFieldLName.getText());
-            x.setLDate(Date.parse(jTextFieldLDate.getText()));
+            x.setLDate(jTextFieldLDate.getText());
 
             if (jComboBoxDept.getSelectedItem().equals("CS")) {
                 x.setDept(Main.cs);
@@ -174,9 +180,13 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxDeptActionPerformed
 
-    private void jTextFieldCreditHoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCreditHoursActionPerformed
+    private void jTextFieldLDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLDateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCreditHoursActionPerformed
+    }//GEN-LAST:event_jTextFieldLDateActionPerformed
+
+    private void jTextFieldLNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldLNameActionPerformed
 
     protected void resetPanelData() {
         jTextFieldID.setText("");
@@ -194,8 +204,8 @@ public class Lecture_AddPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelSucessOrFail;
-    private javax.swing.JTextField jTextFieldLName;
-    private javax.swing.JTextField jTextFieldLDate;
     private javax.swing.JTextField jTextFieldID;
+    private javax.swing.JTextField jTextFieldLDate;
+    private javax.swing.JTextField jTextFieldLName;
     // End of variables declaration//GEN-END:variables
 }

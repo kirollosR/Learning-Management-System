@@ -60,7 +60,7 @@ public class Lecture_UpdatePanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Department");
 
-        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS", "IT", "SW" }));
+        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "CS", "IS", "IT", "SW" }));
 
         btnUpdate.setBackground(new java.awt.Color(102, 255, 255));
         btnUpdate.setText("Update");
@@ -167,7 +167,7 @@ public class Lecture_UpdatePanel extends javax.swing.JPanel {
             Lecture x = new Lecture();
             x.setLNumber(jTextFieldLNumber.getText());
             x.setLName(jTextFieldLName.getText());
-            x.setLDate(Date.parse(jTextFieldLDate.getText()));
+            x.setLDate(jTextFieldLDate.getText());
 
             if (jComboBoxDept.getSelectedItem().equals("CS")) {
                 x.setDept(Main.cs);
@@ -194,7 +194,7 @@ public class Lecture_UpdatePanel extends javax.swing.JPanel {
             jLabelSucessOrFail.setText("Missing required Fields .. Please, complete them before submit ...!");
         }
     }
-    //GEN-LAST:event_btnUpdateActionPerformed
+//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
@@ -262,8 +262,8 @@ public class Lecture_UpdatePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelSucessOrFail;
-    private javax.swing.JTextField jTextFieldLName;
     private javax.swing.JTextField jTextFieldLDate;
+    private javax.swing.JTextField jTextFieldLName;
     private javax.swing.JTextField jTextFieldLNumber;
     private javax.swing.JTextField jTextFieldSearchKey;
     // End of variables declaration//GEN-END:variables

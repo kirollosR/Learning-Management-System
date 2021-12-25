@@ -57,7 +57,7 @@ public class Assignment_UpdatePanel extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Department");
 
-        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CS", "IS", "IT", "SW" }));
+        jComboBoxDept.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "CS", "IS", "IT", "SW" }));
 
         btnUpdate.setBackground(new java.awt.Color(102, 255, 255));
         btnUpdate.setText("Update");

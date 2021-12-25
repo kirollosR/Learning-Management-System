@@ -10,7 +10,7 @@ public class Course {
     FileManger FManger = new FileManger();
     private final String CourseFileName = "Courses.txt" ;
 
-    public Department dept ;
+    public Department dept = Main.general;
 //    Exam finalExam ;
 
     public static ArrayList<Course> Courses = new ArrayList<Course>();
@@ -71,7 +71,7 @@ public class Course {
     }
 
     private String getCourseData(){
-        return this.CName + "#" + this.CId + "#" + this.CreditHours + "#";
+        return this.CName + "#" + this.CId + "#" + this.CreditHours + "#" + this.dept.getDeptName() + "#";
     }
 
     private void commitToFile(){

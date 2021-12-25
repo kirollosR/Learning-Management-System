@@ -111,8 +111,13 @@ public class Professor extends Staff implements Serializable {
     }
 
     @Override
-    public boolean login(String userName, String Pass) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean login(String username, String password) {
+        loadFromFile();
+        for(Professor x : Professors){
+            if(username.equals(x.getUsername()) && password.equals(x.getPassword()))
+                return true;
+        }
+        return false;
     }
 
 }
