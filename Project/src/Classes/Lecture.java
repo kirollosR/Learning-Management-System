@@ -5,12 +5,13 @@ import java.util.ArrayList;
 public class Lecture {
     private String LName;
     private String LNumber;
+    private long LDate;
 
     FileManger FManger = new FileManger();
     private final String LectureFileName = "Lectures.txt";
 
     Course course;
-
+    public Department dept;
     public static ArrayList<Lecture> Lectures = new ArrayList<Lecture>();
 
     public Lecture(){
@@ -36,6 +37,18 @@ public class Lecture {
 
     public String getLNumber() {
         return LNumber;
+    }
+
+    public void setLDate(long LDate){
+        this.LDate = LDate ;
+    }
+
+    public long getLDate(){
+        return LDate;
+    }
+
+    public void setDept(Department dept){
+        this.dept = dept;
     }
 
     public boolean addLecture(){
@@ -78,27 +91,44 @@ public class Lecture {
         return S;
     }
 
-    public String searchLecture(String number){
+    public Lecture searchLecture(String number){
+        Lecture temp = new Lecture();
         loadFromFile();
         int index = getLectureIndex(number);
         if(index != -1)
-            return "\nFound " + Lectures.get(index).toString();
+            return Lectures.get(index);
         else
-            return "\nNot Found ";
+            return temp;
     }
 
-    public void updateLecture(String oldNumber,Lecture x){
+    public ArrayList<Lecture> listLectures() {
+        loadFromFile();
+        return Lectures;
+    }
+
+    public boolean updateLecture(String oldNumber, Lecture x){
         loadFromFile();
         int index = getLectureIndex(oldNumber);
-        Lectures.set(index,x);
-        commitToFile();
-    }
+        if (index != -1) {
+            Lectures.set(index, x);
+            commitToFile();
+            return true;
+        }
+        else{
+            return false;
+        }
 
-    public void deleteLecture(String number){
+    public void deleteLecture(String Lnumber){
         loadFromFile();
-        int index = getLectureIndex(number);
-        Lectures.remove(index);
-        commitToFile();
+        int index = getLectureIndex(Lnumber);
+        if (index != -1) {
+            Lectures.remove(index);
+            commitToFile();
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     @Override
@@ -107,3 +137,4 @@ public class Lecture {
     }
 
 }
+
