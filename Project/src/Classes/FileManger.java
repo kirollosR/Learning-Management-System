@@ -172,15 +172,7 @@ public class FileManger implements Serializable {
                 x.setCName(seprated[0]);
                 x.setCId(seprated[1]);
                 x.setCreditHours(Integer.parseInt(seprated[2]));
-                if (seprated[3].equals("CS")) {
-                    x.setDept(Main.cs);
-                } else if (seprated[3].equals("IS")) {
-                    x.setDept(Main.is);
-                } else if (seprated[3].equals("IT")) {
-                    x.setDept(Main.it);
-                } else if (seprated[3].equals("SW")) {
-                    x.setDept(Main.sw);
-                }
+
 
                 Courses.add(x);
             }
