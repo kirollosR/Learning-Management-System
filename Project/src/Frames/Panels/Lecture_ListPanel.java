@@ -5,8 +5,12 @@
  */
 package Frames.Panels;
 
+import Classes.Lecture;
+
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+
+import static Classes.Lecture.Lectures;
 
 /**
  *
@@ -73,21 +77,21 @@ public class Lecture_ListPanel extends javax.swing.JPanel {
     public void addRowsTojTable() {
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         Object rowData[] = new Object[4];
-/*
-        Course c = new Course();
-        ArrayList<Course> courses = new ArrayList<Course>();
 
-        courses = c.listCourses();
+        Lecture c = new Lecture();
+        ArrayList<Lecture> lectures = new ArrayList<Lecture>();
 
-        for (Course x : courses) {
-            rowData[0] = x.getCId();
-            rowData[1] = x.getCname();
-            rowData[2] = x.getCreditHours();
+        Lectures = c.listLectures();
+
+        for (Lecture x : Lectures) {
+            rowData[0] = x.getLNumber();
+            rowData[1] = x.getLName();
+            rowData[2] = x.getLDate();
             rowData[3] = x.dept.getDeptName();
 
             model.addRow(rowData);
         }
-*/
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

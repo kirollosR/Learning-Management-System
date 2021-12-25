@@ -80,7 +80,7 @@ public class Course {
     private int getCourseIndex(String id){
         for (int i = 0; i< Courses.size();i++){
             if(Courses.get(i).getCId().equals(id))
-            return i;
+                return i;
         }
         return -1;
     }
