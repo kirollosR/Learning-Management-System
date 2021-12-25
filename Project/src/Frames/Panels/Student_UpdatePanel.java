@@ -8,6 +8,8 @@ package Frames.Panels;
 import Classes.Main;
 import Classes.Student;
 
+import javax.swing.*;
+
 
 public class Student_UpdatePanel extends javax.swing.JPanel {
 
@@ -258,6 +260,16 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
 
             if(jPasswordField1.getText().equals(jPasswordField2.getText()))
                 x.setPassword(jPasswordField1.getText());
+            else {
+                String pass = jPasswordField2.getText();
+                do {
+                    pass = JOptionPane.showInputDialog("Please enter again \"repeat password\": ");
+                    if (!jPasswordField1.getText().equals(pass)) {
+                        JOptionPane.showMessageDialog(null, "Password didn't match repeat password :(");
+                    }
+                } while (!jPasswordField1.getText().equals(pass));
+                x.setPassword(jPasswordField1.getText());
+            }
             x.setAge(Integer.parseInt(jTextFieldAge.getText()));
             if(jComboBoxLevels.getSelectedItem().equals("Level 1"))
                 x.setLevel(1);
@@ -310,7 +322,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldSearchKey.getText().equals("")) {
+        if(!jTextFieldSearchKey.getText().equals("")) {
             Student x = new Student();
             if(x.deleteStudent(Integer.parseInt(jTextFieldSearchKey.getText()))) {
                 jLabelSucessOrFail.setText("Deleted Successfully.. !");
