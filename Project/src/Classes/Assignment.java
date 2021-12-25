@@ -8,10 +8,10 @@ public class Assignment {
     private String ADueDate;
 
     FileManger FManger = new FileManger();
-    private final String AssignmentFileName = "Assignment.txt";
+    private final String AssignmentFileName = "Assignments.txt";
 
     Course course ;
-    public Department dept;
+    public Department dept = Main.general;
 
     public static ArrayList<Assignment> Assignments = new ArrayList<Assignment>();
 
@@ -67,7 +67,7 @@ public class Assignment {
     }
 
     private String getAssignmentData(){
-        return this.AName + "@" + this.AType + "@" + this.ADueDate +"@" ;
+        return this.AName + "#" + this.AType + "#" + this.ADueDate +"#" + this.dept.getDeptName() + "#";
     }
 
     private void commitToFile(){

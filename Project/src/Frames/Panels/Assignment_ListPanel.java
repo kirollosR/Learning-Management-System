@@ -89,7 +89,7 @@ public class Assignment_ListPanel extends javax.swing.JPanel {
             rowData[0] = x.getAName();
             rowData[1] = x.getAType();
             rowData[2] = x.getADueDate();
-            rowData[3] = x.getDept();
+            rowData[3] = x.dept.getDeptName();
 
             model.addRow(rowData);
         }

@@ -244,10 +244,37 @@ public class FileManger implements Serializable {
                     x.setDept(Main.sw);
                 }
 
-
                 Lectures.add(x);
             }
             return (ArrayList<Object>) (Object) Lectures;
+        }else if (FilePath.equals("Assignments.txt")) {
+
+            ArrayList<Assignment> Assignments = new ArrayList<Assignment>();
+            Assignment x;
+
+            while (Reader.hasNext()) {
+
+                x = new Assignment();
+                String Line = Reader.nextLine();
+                String[] seprated = Line.split("#");
+
+                x.setAName(seprated[0]);
+                x.setAType(seprated[1]);
+                x.setADueDate(seprated[2]);
+
+                if (seprated[2].equals("CS")) {
+                    x.setDept(Main.cs);
+                } else if (seprated[2].equals("IS")) {
+                    x.setDept(Main.is);
+                } else if (seprated[2].equals("IT")) {
+                    x.setDept(Main.it);
+                } else if (seprated[2].equals("SW")) {
+                    x.setDept(Main.sw);
+                }
+
+                Assignments.add(x);
+            }
+            return (ArrayList<Object>) (Object) Assignments;
         }else {
             return null;
         }
