@@ -10,7 +10,7 @@ public class Course {
     FileManger FManger = new FileManger();
     private final String CourseFileName = "Courses.txt" ;
 
-    Department dept ;
+    public Department dept ;
     Exam finalExam ;
 
     public static ArrayList<Course> Courses = new ArrayList<Course>();
@@ -98,27 +98,36 @@ public class Course {
         return S ;
     }
 
-    public String searchCourse(String id){
+    public Course searchCourse(String id){
+        Course temp = new Course();
         loadFromFile();
         int index = getCourseIndex(id);
         if(index != -1)
-            return "\nFound " + Courses.get(index).toString();
+            return Courses.get(index);
         else
-            return "\nNot Found " ;
+            return temp;
     }
 
-    public void updateCourse(String oldID, Course x){
+    public boolean updateCourse(String oldID, Course x){
         loadFromFile();
         int index = getCourseIndex(oldID);
-        Courses.set(index, x);
-        commitToFile();
+        if (index != -1) {
+            Courses.set(index, x);
+            commitToFile();
+            return true;
+        }
+        return false;
     }
 
-    public void deleteCourse(String id){
+    public boolean deleteCourse(String id){
         loadFromFile();
         int index = getCourseIndex(id);
-        Courses.remove(index);
-        commitToFile();
+        if (index != -1) {
+            Courses.remove(index);
+            commitToFile();
+            return true;
+        }
+        return false;
     }
 
     @Override
