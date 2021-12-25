@@ -11,7 +11,7 @@ public class Course {
     private final String CourseFileName = "Courses.txt" ;
 
     Department dept ;
-    Exam finalExam ;
+//    Exam finalExam ;
 
     public static ArrayList<Course> Courses = new ArrayList<Course>();
 
@@ -24,9 +24,9 @@ public class Course {
         this.CreditHours = CreditHours;
         this.dept = dept;
 
-        finalExam = new Exam(CName + " Final Exam", CId + " 01", 100);
-        System.out.println("\n" + finalExam.toString() + "Added Successfully");
-        finalExam.addExam();
+//        finalExam = new Exam(CName + " Final Exam", CId + " 01", 100);
+//        System.out.println("\n" + finalExam.toString() + "Added Successfully");
+//        finalExam.addExam();
     }
 
     public void setCName(String CName){
@@ -67,7 +67,7 @@ public class Course {
     }
 
     private String getCourseData(){
-        return this.CName + "@" + this.CId + "@" + this.CreditHours + "@" ;
+        return this.CName + "#" + this.CId + "#" + this.CreditHours + "#" + this.dept + "#";
     }
 
     private void commitToFile(){
