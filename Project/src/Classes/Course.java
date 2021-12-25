@@ -18,6 +18,10 @@ public class Course {
     public Course() {
     }
 
+    public Course(String CId){
+        this.CId = CId;
+    }
+
     public Course(String CName,String CId,int CreditHours,Department dept) {
         this.CName = CName;
         this.CId = CId;

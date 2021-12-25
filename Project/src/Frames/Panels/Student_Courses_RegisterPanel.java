@@ -7,11 +7,14 @@ package Frames.Panels;
 
 import Classes.Main;
 import Classes.Course;
+import Classes.RegisteredCourses;
+import Classes.Student;
 
 import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
@@ -21,15 +24,16 @@ public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
      */
     public Student_Courses_RegisterPanel() {
         initComponents();
-            Course c = new Course();
-            ArrayList<Course> courses =new ArrayList<Course>();
+        addRowsTojTable();
+        Course c = new Course();
+        ArrayList<Course> courses =new ArrayList<Course>();
 //            ArrayList<String> IDs = new ArrayList<>();
-            String ID;
-            courses = c.listCourses();
-            for(Course x : courses){
-                ID = x.getCId();
-                jComboBoxCourse.addItem(ID);
-            }
+        String ID;
+        courses = c.listCourses();
+        for(Course x : courses){
+            ID = x.getCId();
+            jComboBoxCourse.addItem(ID);
+        }
 
 //            for (int i = 0; i < IDs.size(); i++) {
 //                System.out.println(IDs.get(i));
@@ -62,12 +66,19 @@ public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabelSucessOrFail1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(0, 153, 153));
 
         btnSubmit1.setBackground(new java.awt.Color(102, 255, 255));
         btnSubmit1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSubmit1.setText("Add Course");
+        btnSubmit1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmit1ActionPerformed(evt);
+            }
+        });
 
         jTextFieldID1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,12 +96,30 @@ public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
         jLabelSucessOrFail1.setForeground(new java.awt.Color(255, 255, 51));
         jLabelSucessOrFail1.setText("Add New Course");
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Course name", "Credit Hours", "Dept"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,14 +134,18 @@ public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
                             .addComponent(jComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(btnSubmit1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                        .addComponent(btnSubmit1)))
+                .addContainerGap(256, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(196, Short.MAX_VALUE)
                 .addComponent(jLabelSucessOrFail1)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -124,7 +157,12 @@ public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
                     .addComponent(jComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(btnSubmit1)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(201, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -132,13 +170,49 @@ public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldID1ActionPerformed
 
-//    protected void resetPanelData() {
-//        jTextFieldID.setText("");
-//        jTextFieldCname.setText("");
-//        jTextFieldCreditHours.setText("");
-//        jComboBoxDept.setSelectedIndex(0);
-//
-//    }
+    private void btnSubmit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmit1ActionPerformed
+        // TODO add your handling code here:
+        if (!jTextFieldID1.getText().equals("")) {
+            Student x = new Student();
+            Student returned = x.searchStudentById(Integer.parseInt(jTextFieldID1.getText()));
+            if(returned.getID() > 0) {
+                RegisteredCourses r = new RegisteredCourses((String) jComboBoxCourse.getSelectedItem());
+                r.setStudentID(Integer.parseInt(jTextFieldID1.getText()));
+                if(r.addRegisteredCourse()){
+                    jLabelSucessOrFail1.setText("Added Successfully");
+                    resetPanelData();
+                } else {
+                    jLabelSucessOrFail1.setText("Failed to insert");
+                }
+            }else
+                jLabelSucessOrFail1.setText("Not Found.. !");
+        } else
+            jLabelSucessOrFail1.setText("You didn't enter an ID.. ! Please enter an ID to search");
+    }//GEN-LAST:event_btnSubmit1ActionPerformed
+
+    public void addRowsTojTable() {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        Object rowData[] = new Object[4];
+
+        Course c = new Course();
+        ArrayList<Course> courses =new ArrayList<Course>();
+
+        courses = c.listCourses();
+
+        for (Course x : courses){
+            rowData[0] = x.getCId();
+            rowData[1] = x.getCName();
+            rowData[2] = x.getCreditHours();
+            //rowData[3] = x.dept.getDeptName();
+
+            model.addRow(rowData);
+        }
+    }
+    protected void resetPanelData() {
+        jTextFieldID1.setText("");
+        jComboBoxCourse.setSelectedIndex(0);
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit1;
@@ -146,6 +220,8 @@ public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelSucessOrFail1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldID1;
     // End of variables declaration//GEN-END:variables
 }
