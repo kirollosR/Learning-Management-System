@@ -55,6 +55,7 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
         jTextFieldSearchKey = new javax.swing.JTextField();
         jTextFieldSalary = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        jCheckBoxBlocked = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(0, 153, 153));
 
@@ -121,6 +122,14 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Salary");
 
+        jCheckBoxBlocked.setBackground(new java.awt.Color(0, 153, 153));
+        jCheckBoxBlocked.setText("Blocked");
+        jCheckBoxBlocked.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxBlockedActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -173,7 +182,9 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
                                             .addGap(28, 28, 28)
                                             .addComponent(jTextFieldSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnDelete))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btnDelete)
+                                        .addComponent(jCheckBoxBlocked)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(layout.createSequentialGroup()
@@ -234,8 +245,9 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextFieldSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                    .addComponent(jTextFieldSalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxBlocked))
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete))
@@ -279,6 +291,9 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
 
             x.setOfficeHours(jTextFieldOfficeHours.getText());
             x.setSalary(Double.parseDouble(jTextFieldSalary.getText()));
+
+            if(jCheckBoxBlocked.isSelected())
+                x.setBlocked1("true");
 
             if (x.updateProf(x.getID(),x)) {
                 jLabelSucessOrFail.setText("Updated Successfully ... !");
@@ -325,6 +340,11 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void jCheckBoxBlockedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxBlockedActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jCheckBoxBlockedActionPerformed
+
     protected void resetPanelData() {
         jTextFieldID.setText("");
         jTextFieldFname.setText("");
@@ -336,6 +356,7 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
         jTextFieldOfficeHours.setText("");
         jTextFieldSalary.setText("");
         jComboBoxDept.setSelectedIndex(0);
+        jCheckBoxBlocked.setSelected(false);
 
     }
 
@@ -359,6 +380,8 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
             jComboBoxDept.setSelectedIndex(3);
         }
         jTextFieldSalary.setText("" + x.getSalary());
+        if(x.isBlocked1() == "true")
+            jCheckBoxBlocked.setSelected(true);
 
     }
 
@@ -366,6 +389,7 @@ public class Prof_UpdatePanel extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JCheckBox jCheckBoxBlocked;
     private javax.swing.JComboBox<String> jComboBoxDept;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

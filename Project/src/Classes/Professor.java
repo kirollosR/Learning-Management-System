@@ -1,5 +1,6 @@
 package Classes;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -36,7 +37,7 @@ public class Professor extends Staff implements Serializable {
         }
     }
     private String getProfData() {
-        return this.id + "#" + this.fname + "#" + this.lname + "#" + this.age + "#" + this.salary + "#" + this.officeHours + "#" + this.myDept.getDeptName() + "#" + this.username + "#" + this.password + "#";
+        return this.id + "#" + this.fname + "#" + this.lname + "#" + this.age + "#" + this.salary + "#" + this.officeHours + "#" + this.myDept.getDeptName() + "#" + this.username + "#" + this.password + "#" + this.isBlocked + "#";
     }
 
     public void commitToFile() {
@@ -114,9 +115,10 @@ public class Professor extends Staff implements Serializable {
     public boolean login(String username, String password) {
         loadFromFile();
         for(Professor x : Professors){
-            if(username.equals(x.getUsername()) && password.equals(x.getPassword()))
+            if(username.equals(x.getUsername()) && password.equals(x.getPassword()) && x.isBlocked1().equals("false"))
                 return true;
         }
+//        JOptionPane.showMessageDialog(null, "This account isn't available or is blocked");
         return false;
     }
 

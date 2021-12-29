@@ -68,6 +68,8 @@ public class FileManger implements Serializable {
                 x.setLevel(Integer.parseInt(seprated[7]));
                 x.setGpa(Double.parseDouble(seprated[8]));
 
+                x.setBlocked1(seprated[9]);
+
                 if (seprated[6].equals("CS")) {
                     x.setDept(Main.cs);
                 } else if (seprated[6].equals("IS")) {
@@ -77,6 +79,7 @@ public class FileManger implements Serializable {
                 } else if (seprated[6].equals("SW")) {
                     x.setDept(Main.sw);
                 }
+
 
                 Students.add(x);
             }
@@ -114,6 +117,8 @@ public class FileManger implements Serializable {
 
                 x.setUsername(seprated[7]);
                 x.setPassword(seprated[8]);
+
+                x.setBlocked1(seprated[9]);
 
                 Professors.add(x);
             }

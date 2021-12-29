@@ -6,7 +6,7 @@ public class RegisteredCourses extends Course{
 
     private int studentID;
     private Course c;
-//    private String courseID;
+    private String courseID;
 
     Student x = new Student();
     private final String RegisteredCoursesFileName = "RegisteredCourses.txt" ;
@@ -28,9 +28,9 @@ public class RegisteredCourses extends Course{
         return studentID;
     }
 
-//    public void setCId(String CId){
-//        this.courseID = CId ;
-//    }
+    public void setCId(String CId){
+        this.courseID = CId ;
+    }
 
     public boolean addRegisteredCourse(){
         if (FManger.write(getRegisteredCourseData(), RegisteredCoursesFileName, true)){

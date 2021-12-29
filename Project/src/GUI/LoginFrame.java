@@ -117,14 +117,16 @@ public class LoginFrame extends javax.swing.JFrame {
             new AdminDashboard().setVisible(true);
         } else {
             x = new Student();
-            if ((x.login(jTextFieldUsername.getText(), jPasswordField1.getText()))) {
+            if ((x.login(jTextFieldUsername.getText(), jPasswordField1.getText())) && x.isBlocked1().equals("false")) {
                 this.setVisible(false);
                 new StudentDashboard().setVisible(true);
             }else {
                 x = new Professor();
-                if ((x.login(jTextFieldUsername.getText(), jPasswordField1.getText()))) {
+                if ((x.login(jTextFieldUsername.getText(), jPasswordField1.getText())) && x.isBlocked1().equals("false")) {
                     this.setVisible(false);
                     new ProfessorDashboard().setVisible(true);
+                }else{
+                    JOptionPane.showMessageDialog(null, "This account isn't available or is blocked");
                 }
             }
         }
