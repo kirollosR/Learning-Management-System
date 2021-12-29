@@ -411,6 +411,7 @@ public class Student_UpdatePanel extends javax.swing.JPanel {
             jCheckBoxBlocked.setSelected(true);
         else
             jCheckBoxBlocked.setSelected(false);
+
     }
 
 
