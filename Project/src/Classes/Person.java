@@ -8,6 +8,7 @@ public abstract class Person {
     protected String fname;
     protected String lname;
     protected int age;
+    protected String isBlocked;
 
     public Department myDept = Main.general;
 
@@ -16,6 +17,7 @@ public abstract class Person {
     FileManger FManger = new FileManger();
 
     public Person(){
+        isBlocked = "false";
     }
 
     public Person(int id, String username, String password, String fname, String lname, int age, Department dept) {
@@ -43,6 +45,8 @@ public abstract class Person {
             this.age = age;
 
         this.myDept = dept;
+
+        this.isBlocked = "false";
     }
 
     public abstract String toString();
@@ -88,6 +92,24 @@ public abstract class Person {
         this.myDept = dept;
     }
 
+    public void setBlocked(){
+        this.isBlocked = "true";
+    }
+
+    public void setBlocked1(String s){
+        this.isBlocked = s;
+    }
+
+    public String isBlocked1(){
+        return isBlocked;
+    }
+
+//    public boolean isBlocked2(){
+//        if(isBlocked == "true")
+//            return true;
+//        else
+//            return false;
+//    }
 
     public int getID(){
         return this.id;

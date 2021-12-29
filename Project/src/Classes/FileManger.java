@@ -78,6 +78,8 @@ public class FileManger implements Serializable {
                     x.setDept(Main.sw);
                 }
 
+                x.setBlocked1(seprated[9]);
+
                 Students.add(x);
             }
 
@@ -219,7 +221,7 @@ public class FileManger implements Serializable {
 
             return (ArrayList<Object>) (Object) RegisteredCourse;
 
-        }else if (FilePath.equals("Lectures.txt")) {
+        } else if (FilePath.equals("Lectures.txt")) {
 
             ArrayList<Lecture> Lectures = new ArrayList<Lecture>();
             Lecture x;
@@ -247,7 +249,7 @@ public class FileManger implements Serializable {
                 Lectures.add(x);
             }
             return (ArrayList<Object>) (Object) Lectures;
-        }else if (FilePath.equals("Assignments.txt")) {
+        } else if (FilePath.equals("Assignments.txt")) {
 
             ArrayList<Assignment> Assignments = new ArrayList<Assignment>();
             Assignment x;
@@ -275,6 +277,39 @@ public class FileManger implements Serializable {
                 Assignments.add(x);
             }
             return (ArrayList<Object>) (Object) Assignments;
+        }else if (FilePath.equals("Exams.txt")){
+            ArrayList<Exam> Exams = new ArrayList<Exam>();
+            Exam x;
+
+            while (Reader.hasNext()) {
+                x = new Exam();
+                String Line = Reader.nextLine();
+                String[] seprated = Line.split("#");
+
+                //return this.EName + "#" + this.EId + "#" + this.EDate + "#" + this.CourseName + "#" + this.dept.getDeptName()+ "#";
+                x.setEName(seprated[0]);
+                x.setEId(seprated[1]);
+                x.setEDate(Integer.parseInt(seprated[2]));
+                x.setCourse(seprated[3]);
+                if (seprated[4].equals("CS")) {
+                    x.setDept(Main.cs);
+                } else if (seprated[4].equals("IS")) {
+                    x.setDept(Main.is);
+                } else if (seprated[4].equals("IT")) {
+                    x.setDept(Main.it);
+                } else if (seprated[4].equals("SW")) {
+                    x.setDept(Main.sw);
+                }
+
+
+                Exams.add(x);
+            }
+
+
+
+
+
+            return (ArrayList<Object>) (Object) Exams;
         }else {
             return null;
         }
