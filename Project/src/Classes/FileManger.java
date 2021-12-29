@@ -196,12 +196,12 @@ public class FileManger implements Serializable {
 
         } else if (FilePath.equals("RegisteredCourses.txt")) {
 
-            ArrayList<RegisteredCourses> RegisteredCourse = new ArrayList<RegisteredCourses>();
-            RegisteredCourses x;
+            ArrayList<RegisteredCourse> RegisteredCourse = new ArrayList<Classes.RegisteredCourse>();
+            Classes.RegisteredCourse x;
 
             while (Reader.hasNext()) {
 
-                x = new RegisteredCourses();
+                x = new RegisteredCourse();
                 String Line = Reader.nextLine();
                 String[] seprated = Line.split("#");
 

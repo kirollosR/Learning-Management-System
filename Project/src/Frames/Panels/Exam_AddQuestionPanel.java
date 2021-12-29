@@ -37,10 +37,13 @@ public class Exam_AddQuestionPanel extends javax.swing.JPanel {
         jTextFieldQuestionNumber = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
         jLabelQuestion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelQuestion.setText("Question");
 
         jLabelSucessOrFail.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelSucessOrFail.setForeground(new java.awt.Color(255, 255, 51));
         jLabelSucessOrFail.setText("Enter Exam ID");
 
         jLabelAnswer.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -52,6 +55,7 @@ public class Exam_AddQuestionPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSearch.setBackground(new java.awt.Color(102, 255, 255));
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loupe.png"))); // NOI18N
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +73,7 @@ public class Exam_AddQuestionPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(102, 255, 255));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Add Question");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

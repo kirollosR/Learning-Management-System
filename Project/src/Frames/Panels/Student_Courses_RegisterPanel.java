@@ -5,15 +5,11 @@
  */
 package Frames.Panels;
 
-import Classes.Main;
 import Classes.Course;
-import Classes.RegisteredCourses;
+import Classes.RegisteredCourse;
 import Classes.Student;
 
-import java.io.*;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -176,7 +172,7 @@ public class Student_Courses_RegisterPanel extends javax.swing.JPanel {
             Student x = new Student();
             Student returned = x.searchStudentById(Integer.parseInt(jTextFieldID1.getText()));
             if(returned.getID() > 0) {
-                RegisteredCourses r = new RegisteredCourses((String) jComboBoxCourse.getSelectedItem());
+                RegisteredCourse r = new RegisteredCourse((String) jComboBoxCourse.getSelectedItem());
                 r.setStudentID(Integer.parseInt(jTextFieldID1.getText()));
                 if(r.addRegisteredCourse()){
                     jLabelSucessOrFail1.setText("Added Successfully");
